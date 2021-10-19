@@ -1,4 +1,4 @@
-// Use CSS variables if support allows...otherwise switch to Sass vars.
+
 :root {
   --primary-color: darkslategray;
 }
@@ -10,8 +10,8 @@
 // Main grid container
 .grid {
   // width: 90vw;
-  max-width: 62rem;
-  // Don't define grid in a Feature Query since IE doesn't support them as of March 2019, but does support grid. 
+  max-width: 63rem;
+  
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
