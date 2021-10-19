@@ -1,0 +1,90 @@
+// Use CSS variables if support allows...otherwise switch to Sass vars.
+:root {
+  --primary-color: darkslategray;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Main grid container
+.grid {
+  // width: 90vw;
+  max-width: 62rem;
+  // Don't define grid in a Feature Query since IE doesn't support them as of March 2019, but does support grid. 
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  margin: 0 auto;
+  padding: 1em;
+  border: 5px dotted greenyellow;
+  // Grid-children styles for non-supported browsers
+  > * {
+    display: inline-block;
+    max-width: 300px;
+    margin: 2em;
+    // Reset any shared properties of a fallback (i.e., top/bottom margin) inside of a Feature Query otherwise it will be used by both. (Use grid-gap instead of margins.)
+    @supports (grid-template-rows: initial) {
+      display: initial;
+      max-width: initial;
+      margin: initial;
+    }
+  }
+}
+
+// Cards are grids themselves
+.card {
+  // Layout styles
+  //
+  // Instead of Feature Queries, first use any fallback styles that will be overwritten by Grid in the cascade if supported. Any declared flex, floats/clears, inline-block/table-cell, & multi-cols will just be ignored... 
+  display: flex;
+  flex: 1 0 100px;
+  // ...then add the Grid styles.
+  display: grid;
+  // The thumbnail img will be responsive (minmax) and the next column will be twice that size (2fr)
+  grid-template-columns: minmax(100px, 1fr) 2fr;
+  grid-gap: 1em;
+  padding: 1em;
+  transition: transform 200ms ease;
+  // Design styles
+  color: var(--primary-color);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  img {
+    box-shadow: 0 2px 5px lightgray;
+  }
+}
+
+// Blah element styles
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.wrapper {
+  height: 100%;
+  padding: 1em;
+  background: linear-gradient(
+    135deg,
+    rgba(25, 204, 161, 1) 0%,
+    rgba(0, 187, 255, 1) 100%
+  );
+}
