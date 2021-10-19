@@ -1,4 +1,4 @@
-// Use CSS variables if support allows...otherwise switch to Sass vars.
+
 :root {
   --primary-color: darkslategray;
 }
@@ -10,8 +10,8 @@
 // Main grid container
 .grid {
   // width: 90vw;
-  max-width: 62rem;
-  // Don't define grid in a Feature Query since IE doesn't support them as of March 2019, but does support grid. 
+  max-width: 63rem;
+  
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -50,7 +50,7 @@
   // Design styles
   color: var(--primary-color);
   text-decoration: none;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(200, 255, 255, 1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   border-radius: 3px;
   &:hover {
@@ -70,13 +70,13 @@
 // Blah element styles
 
 img {
-  max-width: 100%;
+  max-width: 99%;
 }
 
 h1,
 h2,
 h3 {
-  margin-top: 0;
+  margin-top: 5px;
 }
 
 .wrapper {
